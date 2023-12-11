@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "valinstelkom",
+  "private_key_id": "bf599f99090a78008df5e894643b80be5402e96b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDnh1W9ov2eExvq\nVzvmcVTmzPThYk7YZbzXK3RCYEix+jXZX37AKjrl2EPwbq5iGXKxG8VZ40vnfB7t\no5cM2H758onBhaxnDPm9QHHCLinnga+k647LCUUQOIuPDnAhHE/9+9Q5+yTTd9/F\nuqd+poMgvZNYOk0inh0DmTQ3MSCgX9eJflcOux23EL8lTjPqKUw8/UHe48sMfK+A\n5fZR57Qxim1Bs+t3vyF4y6SrpzadV9ht/aqadg2okXtV7bjHiMpyab7/VC13q0wR\nUT/2DpoGgvO4VE4vLKhwqnaIyfITOjX32WJjk76Wl+FvZRPcbseDTeEIbo9JDgnW\nMnPVip87AgMBAAECggEAAKJWwke1gR7VRz2I7Pcnf+BU1V8zDxWsQDyeu2XPHSmt\nxxQjYTxcX+/JM9nhwWQHc+O7FSVxukcVQJpfmgnnwyB+bxjCIaAf+Pw5s4nz1G3/\nAKkigXzbgxFclH46IWUV9QChEq2U6r1b0AtUVRz4o/jQ8/9o4azkMHPVeEc6qyXG\nuDb0ShCtSdOZ43xDKS35xyUTD0g+b/MHgJ2kp3ye2quHnhU4Xz/YVoJtlq0YdmWJ\nk9jZgqhfwNFmv+zqnxjZ2HCZS5L4sShlnI5Lw+wUw48zZSxRWOxV+MSWWUscKf+v\nYmJBGvffAWOTn5eTGCvS4NWH4ctTiPgLYeJU9zru+QKBgQD8gGIc5rmDnju0Cr/O\n96lJoTXY+yarssSPZ3zEcBT1GXqZfOMxbJanX+qFFV99ckOGnFofLH+c5ewlbDtA\nXk9P4/aWCqBe8/SwQZnA9zuRfoxYRIv+ELqP9IW1x6PuijwrzlY0CrILA7bmM3CX\nz0oq+RYNxr7W59w4UhLbXSy/4wKBgQDqvI++DPT5pXgI109vA2tkIVZzE8vIym91\ndp5Kp6vA0aGZ2QNrpZbhs/Q8rNYk2zaVujXuifAmUy7dpbdlI2F+a5Z6tv8Dz+Mm\nN/XKRaO0L5ceIMKUO2vT4VGC4rj4rwBYgQZnykv9XUemIrbkhnxAU3CQebk74XAR\ny9cTCI4SyQKBgDWO0cDJm730OTu2L/spgwnwHOjaVNiEgbbdP5S3JWrbraqS1+nq\n24XDDY6O+wMz0mjiDyefm63fAxjo/SRpHK+YbfxjYqLhYhxkvcU1a7gvvHsYhw0r\n5TaVqirlnrsBLUQpbxV4000My6XGcXJx8Ixu6yOe7WnOImL73a4T9GL7AoGAcauO\nEAJGPv4Z+m4JUUDeqEZcjq1vaXReNQuT66L2UREyqEWmmmI9hl6WTyuDJ6Xf8PGT\nXEf/uw9dCohNHvTbKVUAMbycEUSCQuemZqUCeSbyjuxeTVnZBWl/B1qzJ/nWuQUC\nDRCxa6fYImN9HXzifmPphozrXkv08Sk8pULnScECgYEA1pLOjMOSGXvw9qXkSrsS\nW7GGF2wTTS14BqI6kLv5wsrC1sh2NxyFitpNDKd/y5oJsm1bonZS6yRNfI+RS+Iq\nqYvSyrTFsKFoiO2bXvmgab3SkQuIFKeX6W57zl0ACA/xLzezb3DO0NRLY+X9VLTH\naaYoMaOdCSDIY4g+G8Dh8JY=\n-----END PRIVATE KEY-----\n",
+  "client_email": "valinstelkom@valinstelkom.iam.gserviceaccount.com",
+  "client_id": "114651222077839324123",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/valinstelkom%40valinstelkom.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
