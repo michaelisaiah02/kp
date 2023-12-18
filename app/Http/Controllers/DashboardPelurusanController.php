@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Rekon;
 use App\Models\Valin;
+use Faker\Core\Color;
+use Google\Service\Sheets\CellData;
+use Google\Service\Sheets\ValueRange;
 use Illuminate\Http\Request;
-
-use function PHPUnit\Framework\isNull;
+use Revolution\Google\Sheets\Facades\Sheets;
 
 class DashboardPelurusanController extends Controller
 {
@@ -50,7 +52,7 @@ class DashboardPelurusanController extends Controller
         return view('admin.dashboard.pelurusan.show', [
             'title' => "Rekon " . $pelurusan->bulan,
             'rekon' => $pelurusan->bulan,
-            'valins' => Valin::latest()->where('id_rekon', $pelurusan->id)->pelurusan()->get()
+            'valins' => Valin::where('id_rekon', $pelurusan->id)->pelurusan()->get()
         ]);
     }
 
@@ -61,10 +63,9 @@ class DashboardPelurusanController extends Controller
     {
         return view('admin.dashboard.pelurusan.edit', [
             'title' => "Validasi ID Valins" . $pelurusan->id_valins,
-            'valin' => Valin::latest()->where('id_valins', $pelurusan->id_valins)->first()
+            'valin' => Valin::where('id_valins', $pelurusan->id_valins)->first()
         ]);
     }
-
     /**
      * Update the specified resource in storage.
      */
@@ -78,8 +79,46 @@ class DashboardPelurusanController extends Controller
             'keterangan.required' => 'Keterangan harus dipilih!'
         ]);
         Valin::where('id', $pelurusan->id)->update($validatedData);
+        // Cek apakah data dengan ID Valins sudah ada
+        $existingData = Sheets::spreadsheet('1Zb77WIumXAhmLgkLqZ3oeSzhVDQLuOhrR513fDOirj4')
+            ->sheet(strtoupper($pelurusan->rekon->bulan))
+            ->get();
+        $headers = $existingData->pull(0);
+        array_splice($headers, 5, 1);
+        array_splice($headers, 6, 2);
+        foreach ($existingData as $value) {
+            array_splice($value, 5, 1);
+            array_splice($value, 6, 2);
+            $dat[] = $value;
+        }
+        $valins = Sheets::collection(header: $headers, rows: $dat);
+        $valins = array_values($valins->toArray());
 
-        $valin = Valin::where('id_rekon', $pelurusan->id_rekon)->pelurusan()->first();
+        // Temukan indeks baris yang cocok dengan ID Valins
+        $rowIndex = null;
+        foreach ($valins as $index => $valin) {
+            if ($valin['ID VALINS'] == $pelurusan->id_valins) {
+                $rowIndex = $index + 2;
+                break;
+            }
+        }
+        // Jika data sudah ada, lakukan pembaruan
+        if ($rowIndex !== null) {
+            Sheets::spreadsheet('1Zb77WIumXAhmLgkLqZ3oeSzhVDQLuOhrR513fDOirj4')
+                ->sheet(strtoupper($pelurusan->rekon->bulan))
+                ->range("A" . $rowIndex . ":M" . $rowIndex)
+                ->update(
+                    [[now()->format('m/d/Y H:i:s'), strtoupper($pelurusan->witel->witel), $pelurusan->id_valins, $pelurusan->gambar1, $pelurusan->gambar2, '', $pelurusan->gambar3, '', '', $request->ram3, strtoupper($pelurusan->rekon->bulan), $request->keterangan, auth()->user()->name]]
+                );
+        } else {
+            // Jika data belum ada, tambahkan data baru
+            Sheets::spreadsheet('1Zb77WIumXAhmLgkLqZ3oeSzhVDQLuOhrR513fDOirj4')
+                ->sheet(strtoupper($pelurusan->rekon->bulan))
+                ->append([
+                    ['TIMESTAMP' => now()->format('m/d/Y H:i:s'), 'WITEL' => strtoupper($pelurusan->witel->witel), 'ID VALINS' => $pelurusan->id_valins, 'Upload Eviden Web Valins' => $pelurusan->gambar1, 'Tambahan Eviden Web Valins' => $pelurusan->gambar2, 'Eviden Tambahan Untuk Pelanggan Non Indihome / Dinas' => $pelurusan->gambar3, 'RAM3' => $request->ram3, 'REKON' => strtoupper($pelurusan->rekon->bulan), 'KET' => $request->keterangan, 'Eksekutor' => auth()->user()->name]
+                ]);
+        }
+        $valin = Valin::where('id_rekon', $pelurusan->id_rekon)->pelurusan()->inRandomOrder()->first();
         if ($request->selesai == 0 && !is_null($valin)) {
             return redirect('/admin/dashboard/pelurusan/' . $valin->id_valins . '/edit')->with('success', 'Data dengan ID Valins -> ' . $pelurusan->id_valins . ' berhasil divalidasi!');
         } else {

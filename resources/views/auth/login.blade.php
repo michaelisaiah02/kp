@@ -2,21 +2,21 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="row my-3 ms-5 d-inline-flex">
+        <div class="row my-xxl-3 my-1 ms-md-5 ms-1 d-inline-flex">
             <a href="{{ route('index') }}">
-                <i class="bi bi-arrow-left-square-fill fs-xl text-light rounded-smooth"></i>
+                <i class="bi bi-arrow-left-square-fill fs-xxl text-light rounded-smooth"></i>
             </a>
         </div>
-        <div class="row justify-content-center align-items-center h-100vh">
-            <div class="col-md-4-2">
-                <div class="card rounded-5 border border-3 bg-dark bg-opacity-25 bg-blur px-3 mx-0">
-                    <div class="card-body mx-5 mt-4 mb-5 text-light">
-                        <div class="row mb-4 justify-content-between">
+        <div class="row justify-content-center align-items-center h-100vh m-0">
+            <div class="col-md-4">
+                <div class="card rounded-5 border border-3 bg-dark bg-opacity-25 bg-blur px-xxl-3 px-md-1 mx-0">
+                    <div class="card-body mx-xxl-5 mx-md-3 mt-xxl-4 mt-md-2 mb-xxl-5 mb-md-1 text-light">
+                        <div class="row mb-xxl-4 mb-2 justify-content-between">
                             <div class="col-4 align-self-center">
-                                <h1>Login</h1>
+                                <h1 class="text-nowrap">Login</h1>
                             </div>
                             <div class="col-2 me-0 pe-0 align-self-center ">
-                                <img src="{{ url('img/asset/logo.png') }}" alt="Logo" width="80" height="75">
+                                <img src="{{ url('img/asset/logo.png') }}" alt="Logo" id="logoLogin">
                             </div>
                         </div>
                         <form method="POST" action="{{ url('/login') }}">

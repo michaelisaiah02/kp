@@ -1,5 +1,5 @@
 <div class="row h-100">
-    <div class="col mt-5 h-100">
+    <div class="col mt-4 h-100">
         <div class="list-group h-100">
             <a href="{{ url('/admin') }}"
                 class="list-group-item list-group-item-action border-0 mb-3 bg-dark-3 text-light {{ Request::is('admin') ? 'active-sidebar' : '' }}">
@@ -21,24 +21,28 @@
                     </div>
                 </a>
             @endcan
-            <a href="{{ url('admin/dashboard/eviden') }}"
-                class="list-group-item list-group-item-action border-0 mb-3 bg-dark-3 text-light {{ Request::is('admin/dashboard/eviden*') ? 'active-sidebar' : '' }}">
-                <div class="row justify-content-around align-items-center">
-                    <div id="icon" class="col-4">
-                        <i class="bi bi-eye fs-5"></i>
+            @can('manager')
+                <a href="{{ url('admin/dashboard/eviden') }}"
+                    class="list-group-item list-group-item-action border-0 mb-3 bg-dark-3 text-light {{ Request::is('admin/dashboard/eviden*') ? 'active-sidebar' : '' }}">
+                    <div class="row justify-content-around align-items-center">
+                        <div id="icon" class="col-4">
+                            <i class="bi bi-eye fs-5"></i>
+                        </div>
+                        <div id="menu" class="col fs-6 collapse-horizontal show fade">Daftar Evidence</div>
                     </div>
-                    <div id="menu" class="col fs-6 collapse-horizontal show fade">Daftar Evidence</div>
-                </div>
-            </a>
-            <a href="{{ url('admin/dashboard/pelurusan') }}"
-                class="list-group-item list-group-item-action border-0 mb-3 bg-dark-3 text-light {{ Request::is('admin/dashboard/pelurusan*') ? 'active-sidebar' : '' }}">
-                <div class="row justify-content-around align-items-center">
-                    <div id="icon" class="col-4">
-                        <i class="bi bi-stack fs-5"></i>
+                </a>
+            @endcan
+            @can('validator')
+                <a href="{{ url('admin/dashboard/pelurusan') }}"
+                    class="list-group-item list-group-item-action border-0 mb-3 bg-dark-3 text-light {{ Request::is('admin/dashboard/pelurusan*') ? 'active-sidebar' : '' }}">
+                    <div class="row justify-content-around align-items-center">
+                        <div id="icon" class="col-4">
+                            <i class="bi bi-stack fs-5"></i>
+                        </div>
+                        <div id="menu" class="col fs-6 collapse-horizontal show fade">Pelurusan</div>
                     </div>
-                    <div id="menu" class="col fs-6 collapse-horizontal show fade">Pelurusan</div>
-                </div>
-            </a>
+                </a>
+            @endcan
             <a href="{{ url('admin/dashboard/rekon') }}"
                 class="list-group-item list-group-item-action border-0 mb-3 bg-dark-3 text-light {{ Request::is('admin/dashboard/rekon*') ? 'active-sidebar' : '' }}">
                 <div class="row justify-content-around align-items-center">

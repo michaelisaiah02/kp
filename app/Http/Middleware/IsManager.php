@@ -15,7 +15,7 @@ class IsManager
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->user()->level_akses === 'Manager') {
+        if (auth()->user()->level_akses !== 'Manager') {
             abort(403);
         }
         return $next($request);

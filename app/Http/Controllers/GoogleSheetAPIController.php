@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rekon;
+use App\Models\User;
 use App\Models\Valin;
 use Illuminate\Http\Request;
 use Revolution\Google\Sheets\Facades\Sheets;
 
 class GoogleSheetAPIController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -49,7 +54,8 @@ class GoogleSheetAPIController extends Controller
             "title" => 'Detail Rekon',
             "rekon" => $rekon->bulan,
             "headers" => $headers,
-            "valins" => $valins
+            "valins" => $valins,
+            "users" => User::all()
         ]);
     }
 

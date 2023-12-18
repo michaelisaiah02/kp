@@ -30,5 +30,11 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('teknisi', function (User $user) {
             return $user->level_akses === 'Teknisi';
         });
+        Gate::define('manager', function (User $user) {
+            return $user->level_akses === 'Manager';
+        });
+        Gate::define('validator', function (User $user) {
+            return $user->level_akses === 'Validator';
+        });
     }
 }

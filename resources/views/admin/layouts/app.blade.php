@@ -21,12 +21,12 @@
 
 <body class="bg-dark-4">
     @include('admin.partials.header')
-    <div class="container-fluid mt-7 pt-3 pb-5">
+    <div class="container-fluid">
         <div class="row justify-content-between">
-            <div id="sidebar" class="col-2 text-white bg-dark-3 h-vh">
+            <div id="sidebar" class="col-2 text-white bg-dark-3 vh-100">
                 @include('admin.partials.sidebar')
             </div>
-            <div class="col text-white d-flex align-items-center h-100">
+            <div class="col col-md-10 col-xxl text-white d-flex align-items-center h-100" id="contentValins">
                 @yield('content')
             </div>
         </div>

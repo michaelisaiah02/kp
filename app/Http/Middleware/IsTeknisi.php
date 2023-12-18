@@ -15,7 +15,7 @@ class IsTeknisi
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->user()->level_akses === 'Teknisi') {
+        if (auth()->user()->level_akses !== 'Teknisi') {
             abort(403);
         }
         return $next($request);

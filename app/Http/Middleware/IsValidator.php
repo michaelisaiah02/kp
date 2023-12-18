@@ -15,7 +15,7 @@ class IsValidator
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->user()->level_akses === 'Validator') {
+        if (auth()->user()->level_akses !== 'Validator') {
             abort(403);
         }
         return $next($request);

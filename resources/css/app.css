@@ -1,9 +1,9 @@
 @import 'font.css';
 @import 'color.css';
 @import '../../node_modules/bootstrap-icons/font/bootstrap-icons.min.css';
+
 body{
   flex-direction:column;
-  overflow: hidden;
 }
 
 .bg-1 {
@@ -14,19 +14,6 @@ body{
 .bg-2 {
   background-image: url('/public/img/background/bg2.jpg');
   background-size: cover;
-}
-
-.fs-l {
-  font-size:48px !important;
-}
-.fs-xl {
-  font-size:9.4rem !important;
-}
-.fs-xxl {
-  font-size:10rem !important;
-}
-.fs-xxxl {
-  font-size:19.4rem !important;
 }
 
 .rounded-smooth{
@@ -42,9 +29,6 @@ body{
   width:36% !important;
 }
 
-.mt-6 {
-  margin-top: 5rem !important;
-}
 .mt-7 {
   margin-top: 6rem !important;
 }
@@ -58,36 +42,6 @@ body{
   margin-top: 10rem !important;
 }
 
-.mb-6{
-  margin-bottom: 5rem !important;
-}
-
-.mx-6{
-  margin-left: 5rem !important;
-  margin-right: 5rem !important;
-}
-.mx-7{
-  margin-left: 6.344rem !important;
-  margin-right: 6.344rem !important;
-}
-
-.h-60vh {
-  min-height: 60vh;
-  max-height: 60vh;
-}
-.h-68vh {
-  min-height: 68vh;
-  max-height: 68vh;
-}
-.h-78vh {
-  min-height: 78vh;
-  max-height: 78vh;
-}
-.h-vh {
-  min-height: 100vh;
-  max-height: 100vh;
-}
-
 .bg-blur {
   backdrop-filter: blur(8px); /* Nilai blur dapat disesuaikan */
 }
@@ -96,11 +50,14 @@ body{
 }
 
 #sidebar {
-  transition: 0.7s;
-  -webkit-transition: 0.7s;
-  -moz-transition: 0.7s;
-  -ms-transition: 0.7s;
-  -o-transition: 0.7s;
+  position: sticky;
+    left: 0;
+    top: 0;
+    transition: 0.7s;
+    -webkit-transition: 0.7s;
+    -moz-transition: 0.7s;
+    -ms-transition: 0.7s;
+    -o-transition: 0.7s;
 }
 
 #menu{
@@ -154,12 +111,215 @@ h1#tentang {
 }
 
 .fixed-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
 }
 
 .text-justify{
   text-align: justify;
   text-justify: inter-word;
+}
+
+/* Untuk layar kecil (<992px) */
+@media only screen and (max-width: 992px) {
+  body{
+    overflow: auto !important;
+  }
+  .mt-6 {
+    margin-top: 1rem !important;
+  }
+  .mb-6{
+    margin-bottom: 3rem !important;
+  }
+  .mx-6 {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+  .mx-7{
+    margin-left: 0rem !important;
+    margin-right: 0rem !important;
+  }
+  .fs-m {
+    font-size:0.6rem !important;
+  }
+  .fs-l {
+    font-size:calc(1.175rem + 1.5vw) !important;
+  }
+  .fs-xl{
+    font-size:calc(7.5rem + 3vw) !important;
+  }
+  .fs-xxl {
+    font-size:calc(5.5rem + 3vw) !important;
+  }
+  .fs-xxxl {
+    font-size:calc(9.5rem + 3.5vw) !important;
+  }
+  #logo{
+    width: 39px !important;
+    height: 35.33333333333px !important;
+  }
+  #logoLogin{
+    width: 40px !important;
+    height: 37.5px !important;
+  }
+  #profile-lg, #sidebar, #welcome-lg, #pesan-lg{
+    display: none !important;
+  }
+  #input-foto-md td, #input-foto-sm th, #input-foto-sm i{
+    font-size: 0.6rem !important;
+  }
+  #tabelRekon{
+    display: block !important;
+    width: 100% !important;
+    overflow: auto !important;
+  }
+  #gambarPelurusan{
+    background-size: contain; 
+    max-width: 200px; 
+    max-height: 200px;
+  }
+  #gambarPelurusan .bg-blur-light{
+    height: 200px;
+  }
+}
+
+/* Untuk layar tablet/laptop (992px - 1400px) */
+@media only screen and (min-width: 992px) and (max-width: 1400px) {
+  body{
+    overflow: auto !important;
+  }
+  .mt-6 {
+    margin-top: 1rem !important;
+  }
+  .mb-6{
+    margin-bottom: 3.5rem !important;
+  }
+  .mx-6 {
+    margin-left: 3rem !important;
+    margin-right: 3rem !important;
+  }
+  .mx-7{
+    margin-left: 3.344rem !important;
+    margin-right: 3.344rem !important;
+  }
+  .fs-m {
+    font-size:0.75rem !important;
+  }
+  .fs-l {
+    font-size:42px !important;
+  }
+  .fs-xl{
+    font-size:calc(8rem + 2vw) !important;
+  }
+  .fs-xxl {
+    font-size:calc(6.5rem + 3vw) !important;
+  }
+  .fs-xxxl {
+    font-size:calc(9.175rem + 5vw) !important;
+  }
+  #logo{
+    width: 58.5px !important;
+    height: 53px !important;
+  }
+  #logoLogin{
+    width: 53.333333333px !important;
+    height: 50px !important;
+  }
+  #profile-sm, #navbarAdmin, #welcome-sm, #pesan-sm{
+    display: none !important;
+  }
+  #input-foto-md td, #input-foto-sm th, #input-foto-sm i{
+    font-size: 0.8rem !important;
+  }
+  #tabelRekon{
+    max-height: 600px !important;  
+    overflow: auto !important;
+  }
+  #contentValins{
+    overflow: auto !important;
+  }
+  #gambarPelurusan{
+    background-size: contain; 
+    max-width: 225px; 
+    max-height: 225px;
+  }
+  #gambarPelurusan .bg-blur-light{
+    height: 225px;
+  }
+}
+
+/* Untuk layar pc fhd (>1400px) */
+@media only screen and (min-width: 1400px) {
+  body{
+    overflow: hidden !important;
+  }
+  .mt-6 {
+    margin-top: 5rem !important;
+  }
+  .mb-6{
+    margin-bottom: 5rem !important;
+  }
+  .mx-6 {
+    margin-left: 5rem !important;
+    margin-right: 5rem !important;
+  }
+  .mx-7{
+    margin-left: 10rem !important;
+    margin-right: 10rem !important;
+  }
+  .fs-m {
+    font-size:1.1rem !important;
+  }
+  .fs-l {
+    font-size:48px !important;
+  }
+  .fs-xl{
+    font-size:calc(9rem + 3vw) !important;
+  }
+  .fs-xxl {
+    font-size:calc(7.5rem + 3vw) !important;
+  }
+  .fs-xxxl {
+    font-size:calc(10.175rem + 7vw) !important;
+  }
+  #logo{
+    width: 117px !important;
+    height: 106px !important;
+  }
+  #logoLogin{
+    width: 80px !important;
+    height: 75px !important;
+  }
+  #profile-sm, #navbarAdmin, #welcome-sm, #pesan-sm{
+    display: none !important;
+  }
+  #input-foto-md td, #input-foto-sm th, #input-foto-sm i{
+    font-size: 1.2rem !important;
+  }
+  #tabelRekon{
+    max-height: 750px !important; 
+    overflow: auto !important;
+  }
+  #gambarPelurusan{
+    background-size: contain; 
+    max-width: 250px; 
+    max-height: 250px;
+  }
+  #gambarPelurusan .bg-blur-light{
+    height: 250px;
+  }
+
+  .h-60vh {
+    min-height: 60vh;
+    max-height: 60vh;
+  }
+  .h-68vh {
+    min-height: 68vh;
+    max-height: 68vh;
+  }
+  .h-78vh {
+    min-height: 78vh;
+    max-height: 78vh;
+  }
 }

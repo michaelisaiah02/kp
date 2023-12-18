@@ -2,21 +2,24 @@
 
 @section('content')
     <div class="container-fluid ms-3 mt-5">
-        <div class="row">
-            <div class="col">
+        <div class="row h-100">
+            <div class="col-xxl col-12 d-flex align-items-center justify-content-center mb-3 mb-xxl-0">
                 <div id="foto-odp" class="carousel slide">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="{{ url('storage/' . $valin->gambar1) }}"
-                                alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 w-100 h-78vh">
+                                alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 w-100 h-78vh"
+                                style="max-height: 400px">
                         </div>
                         <div class="carousel-item">
                             <img src="{{ url('storage/' . $valin->gambar2) }}"
-                                alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 w-100 h-78vh">
+                                alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 w-100 h-78vh"
+                                style="max-height: 400px">
                         </div>
                         <div class="carousel-item">
                             <img src="{{ url('storage/' . $valin->gambar3) }}"
-                                alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 w-100 h-78vh">
+                                alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 w-100 h-78vh"
+                                style="max-height: 400px">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#foto-odp" data-bs-slide="prev">
@@ -29,21 +32,21 @@
                     </button>
                 </div>
             </div>
-            <div class="col-5 fs-6 px-5 d-flex align-items-center justify-content-center">
+            <div class="col-xxl-5 col-12 fs-6 px-xxl-5 px-1 d-flex align-items-center justify-content-center">
                 <div
                     class="row justify-content-center text-secondary bg-light bg-opacity-10 border border-secondary border-3 rounded-3">
                     <button class="badge rounded-3 w-25 bg-danger-2 mt-0 ms-0 mb-3 fs-5 me-auto" disabled>Pilih</button>
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center mx-0 mx-xxl-3">
                         <form action="/admin/dashboard/pelurusan/{{ $valin->id_valins }}" method="post">
                             @csrf
                             @method('put')
                             <input type="text" hidden value="">
                             <div class="row mb-3 align-items-center justify-content-between" id="pelurusanIDValins">
-                                <div class="col text-nowrap">
+                                <div class="col-md col-12 text-nowrap text-center text-md-start">
                                     <label class="col-form-label fs-3 ms-3 text-light fw-bold">Validasi Pada ID
                                         Valins</label>
                                 </div>
-                                <div class="col">
+                                <div class="col-md col-12">
                                     <input type="text" class="form-control text-center p-0 fs-3 fw-bold bg-dark-1"
                                         value="{{ $valin->id_valins }}" disabled>
                                 </div>
@@ -56,10 +59,10 @@
                                 <input type="text" id="pelurusanInput" hidden name="ram3" value="">
                             </div>
                             <div class="row mb-3 align-items-center justify-content-between" id="pelurusanKeterangan">
-                                <div class="col text-nowrap">
+                                <div class="col-md col-12 text-nowrap text-center text-md-start">
                                     <label class="col-form-label fs-3 ms-3 text-light fw-bold">Keterangan Valins</label>
                                 </div>
-                                <div class="col">
+                                <div class="col-md col-12">
                                     <select class="form-select" aria-label="Default select" name="keterangan">
                                         <option value="-" selected>-</option>
                                         <option value="BT/NONE >=50% Jumlah Dropcore">BT/NONE >=50% Jumlah Dropcore</option>
@@ -78,7 +81,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="row">
+                    <div class="row" id="pesan-sm">
                         @if (session()->has('success'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 <p>{{ session('success') }}</p>

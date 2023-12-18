@@ -4,7 +4,9 @@
     <div class="container-fluid mt-5">
         <div class="row justify-content-center mb-3 mx-7">
             <div class="col d-flex justify-content-center">
-                <h1 class="py-1 px-5 bg-dark-1 text-light rounded-3 fw-light border border-light">Daftar Review Rekon
+                <h1 class="py-1 px-xxl-5 px-2 bg-dark-1 text-light rounded-3 fw-light border border-light text-nowrap">Daftar
+                    Review
+                    Rekon
                     {{ $rekon }}
                 </h1>
             </div>
@@ -16,9 +18,10 @@
                                 <div class="row justify-content-center my-3">
                                     @foreach ($slideItems as $valin)
                                         <a href="{{ url('/admin/dashboard/pelurusan/' . $valin->id_valins . '/edit') }}"
-                                            class="col-md-4 m-4 d-grid text-decoration-none text-light align-content-center bg-opacity-25"
-                                            style="background-image: url('{{ asset('storage/' . $valin->gambar1) }}'); background-size: contain; max-width: 350px; max-height: 250px;">
-                                            <div class="row bg-blur-light" style="height: 250px;">
+                                            class="col-md-4 m-xxl-4 m-2 d-grid text-decoration-none text-light align-content-center bg-opacity-25"
+                                            style="background-image: url('{{ asset('storage/' . $valin->gambar1) }}');"
+                                            id="gambarPelurusan">
+                                            <div class="row bg-blur-light">
                                                 <div class="col d-grid align-content-center">
                                                     <h3 class="text-center bg-secondary">
                                                         {{ $valin->id_valins }}
@@ -42,12 +45,14 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-                @if (session()->has('success'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <p>{{ session('success') }}</p>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                @endif
+                <div id="pesan-sm">
+                    @if (session()->has('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <p>{{ session('success') }}</p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+                </div>
             </div>
         </div>
     </div>

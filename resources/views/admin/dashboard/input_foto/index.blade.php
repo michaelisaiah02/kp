@@ -18,13 +18,13 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    <div class="container mt-5">
+    <div class="container mt-xxl-5">
         <div class="row justify-content-between">
-            <div class="col-md-2 align-self-end mb-0">
+            <div class="col align-self-end mb-0">
                 <h4 class="m-0">{{ $title }}</h4>
             </div>
-            <div class="col-md-2 d-flex justify-content-end">
-                <button class="btn btn-dark-2 text-decoration-none rounded-2" data-bs-target="#createModal"
+            <div class="col d-flex justify-content-end">
+                <button class="btn btn-dark-2 text-decoration-none rounded-2 text-nowrap" data-bs-target="#createModal"
                     data-bs-toggle="modal" id="tambahButton">
                     <i class="bi bi-upload me-1"></i>
                     Unggah Dokumen
@@ -34,12 +34,12 @@
         </div>
         <hr class="border-light opacity-100 mb-4 mt-2">
         <div class="table-responsive rounded-4">
-            <table class="table table-dark border border-1 border-secondary align-middle">
+            <table class="table table-dark border border-1 border-secondary align-middle" id="input-foto-md">
                 </tr>
                 <thead class="table-danger-2">
                     <tr>
                         <th scope="col">Nama File</th>
-                        <th scope="col" class="text-end">Ukuran File</th>
+                        <th scope="col" class="text-md-end text-center">Ukuran File</th>
                         <th scope="col" class="text-center">Dibuat</th>
                         <th scope="col" class="text-center">Terakhir Diubah</th>
                         <th scope="col" class="text-center">Aksi</th>
@@ -69,7 +69,7 @@
                                                     data-bs-target="#createFotoModal{{ $valin->id_valins }}_{{ $i }}"
                                                     data-bs-toggle="modal" data-id="{{ $valin->id_valins }}"
                                                     data-modal-id="{{ $valin->id_valins . '_' . $i }}"><i
-                                                        class="bi bi-camera-fill fs-5 text-warning"></i></button>
+                                                        class="bi bi-camera-fill text-warning"></i></button>
                                                 @include('admin/partials/create-foto-modal', [
                                                     'modalId' => $valin->id_valins . '_' . $i,
                                                     'gambarKe' => $i,
@@ -81,7 +81,7 @@
                                             data-bs-toggle="modal" data-id="{{ $valin->id_valins }}"
                                             data-modal-id="{{ $valin->id_valins . '_' . $i }}"
                                             data-gambar-ke="{{ $i }}"><i
-                                                class="bi bi-eye-fill fs-5 text-primary"></i></button>
+                                                class="bi bi-eye-fill text-primary"></i></button>
                                         @include('admin/partials/edit-modal', [
                                             'modalId' => $valin->id_valins . '_' . $i,
                                             'gambarKe' => $i,
@@ -94,8 +94,8 @@
                                                 <input type="hidden" name="gambarKe" value="{{ $i }}">
                                                 <input type="hidden" name="metode" value="hapus">
                                                 <button class="text-danger-3 badge bg-transparent border-0"
-                                                    onclick="return confirm('Anda yakin akan menghapus?')"><i
-                                                        class="bi bi-trash-fill fs-5"></i></button>
+                                                    onclick="return confirm('Anda yakin akan menghapus foto ke-{{ $i }}, ID Valins : {{ $valin->id_valins }}?')"><i
+                                                        class="bi bi-trash-fill"></i></button>
                                             </form>
                                         @endif
                                     </td>
@@ -136,21 +136,23 @@
                     </ul>
                 </nav>
             </div>
-            @if (session()->has('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <p>{{ session('success') }}</p>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            @endif
-            @if ($errors->any())
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <h5>Foto gagal diunggah/diubah &emsp;:</h5>
-                    @foreach ($errors->all() as $index => $error)
-                        {{ $index + 1 }}. {{ $error }} &emsp;
-                    @endforeach
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            @endif
+            <div id="pesan-sm">
+                @if (session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <p class="p-0 m-0">{{ session('success') }}</p>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <h5>Foto gagal diunggah/diubah &emsp;:</h5>
+                        @foreach ($errors->all() as $index => $error)
+                            {{ $index + 1 }}. {{ $error }} &emsp;
+                        @endforeach
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+            </div>
         </div>
     </div>
 @endsection
