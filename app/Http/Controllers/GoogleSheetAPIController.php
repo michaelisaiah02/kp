@@ -38,7 +38,7 @@ class GoogleSheetAPIController extends Controller
      */
     public function show(Rekon $rekon)
     {
-        $data = Sheets::spreadsheet('1Zb77WIumXAhmLgkLqZ3oeSzhVDQLuOhrR513fDOirj4')->sheet(strtoupper($rekon->bulan))->get();
+        $data = Sheets::spreadsheet('id-google-sheets')->sheet(strtoupper($rekon->bulan))->get();
         $headers = $data->pull(0);
         array_splice($headers, 5, 1);
         array_splice($headers, 6, 2);
