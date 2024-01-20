@@ -26,7 +26,8 @@ class DashboardInputFotoController extends Controller
             'witels' => Witel::all(),
             'valins' => Valin::where('id_user', Auth::user()->id)->latest()->paginate(5),
             'rekons' => Rekon::all()
-        ]);;
+        ]);
+        ;
     }
 
     /**
@@ -169,14 +170,14 @@ class DashboardInputFotoController extends Controller
                         $validatedData['gambar1'] = $gambar[$i]->storeAs('foto-odp', $input_foto->id_valins . '_1' . $ekstensi);
                         $gambar1 = true;
                     } else
-                    if ($input_foto['gambar2'] == null && $gambar2 == false) {
-                        $validatedData['gambar2'] = $gambar[$i]->storeAs('foto-odp', $input_foto->id_valins . '_2' . $ekstensi);
-                        $gambar2 = true;
-                    } else
-                    if ($input_foto['gambar3'] == null && $gambar3 == false) {
-                        $validatedData['gambar3'] = $gambar[$i]->storeAs('foto-odp', $input_foto->id_valins . '_3' . $ekstensi);
-                        $gambar3 = true;
-                    }
+                        if ($input_foto['gambar2'] == null && $gambar2 == false) {
+                            $validatedData['gambar2'] = $gambar[$i]->storeAs('foto-odp', $input_foto->id_valins . '_2' . $ekstensi);
+                            $gambar2 = true;
+                        } else
+                            if ($input_foto['gambar3'] == null && $gambar3 == false) {
+                                $validatedData['gambar3'] = $gambar[$i]->storeAs('foto-odp', $input_foto->id_valins . '_3' . $ekstensi);
+                                $gambar3 = true;
+                            }
                 }
                 Valin::where('id', $input_foto->id)->update($validatedData);
             }
@@ -184,7 +185,8 @@ class DashboardInputFotoController extends Controller
         }
         // Hapus Foto
         if ($request->_method == "patch" && $request->metode == "hapus") {
-            if ($input_foto['gambar' . $request->gambarKe] != null) Storage::delete($input_foto['gambar' . $request->gambarKe]);
+            if ($input_foto['gambar' . $request->gambarKe] != null)
+                Storage::delete($input_foto['gambar' . $request->gambarKe]);
             Valin::where('id', $input_foto->id)->update(['gambar' . $request->gambarKe => null]);
             $semuaGambarKosong = false;
             for ($i = 1; $i <= 3; $i++) {
@@ -218,7 +220,8 @@ class DashboardInputFotoController extends Controller
             'id_rekon.required' => 'Rekon harus dipilih!'
         ]);
         if ($request->file('gambar' . $request->gambarKe)) {
-            if ($input_foto['gambar' . $request->gambarKe] != null) Storage::delete($input_foto['gambar' . $request->gambarKe]);
+            if ($input_foto['gambar' . $request->gambarKe] != null)
+                Storage::delete($input_foto['gambar' . $request->gambarKe]);
             $validatedData['gambar' . $request->gambarKe] = $request->file('gambar' . $request->gambarKe)->storeAs('foto-odp', $input_foto->id_valins . '_' . $request->gambarKe . '.' . $request->file('gambar' . $request->gambarKe)->getClientOriginalExtension());
         }
         Valin::where('id', $input_foto->id)->update($validatedData);
