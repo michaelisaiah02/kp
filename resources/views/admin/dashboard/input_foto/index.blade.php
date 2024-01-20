@@ -54,7 +54,9 @@
                                         {{ pathinfo($valin['gambar' . $i])['basename'] }}
                                     </td>
                                     <td class="text-end user-select-none py-1">
-                                        {{ humanFileSize(Storage::disk('public')->size($valin['gambar' . $i])) }}
+                                        @if (file_exists(storage_path('app/' . $valin['gambar' . $i])))
+                                            {{ humanFileSize(filesize(storage_path('app/' . $valin['gambar' . $i]))) }}
+                                        @endif
                                     </td>
                                     <td class="text-center user-select-none py-1">
                                         {{ $valin->created_at->format('d/m/Y H:i') }}

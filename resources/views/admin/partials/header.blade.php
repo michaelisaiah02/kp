@@ -8,7 +8,7 @@ navbar-dark navbar-expand-md bg-dark-3 py-0 my-0">
             @if (session()->has('success'))
                 <div class="navbar-collapse justify-content-center" id="profile-lg">
                     <ul class="navbar-nav">
-                        <div class="alert alert-success alert-dismissible fade show m-0 p-1 pe-5 d-flex align-content-center"
+                        <div class="alert alert-success alert-dismissible fade show my-1 mx-md-5 p-1 pe-5 d-flex align-content-center"
                             role="alert">
                             <p class="p-0 m-0">{{ session('success') }}</p>
                             <button type="button" class="btn-close p-0 m-2" data-bs-dismiss="alert"
@@ -20,11 +20,11 @@ navbar-dark navbar-expand-md bg-dark-3 py-0 my-0">
             @if ($errors->any())
                 <div class="navbar-collapse justify-content-center" id="profile-lg">
                     <ul class="navbar-nav">
-                        <div class="alert alert-danger alert-dismissible fade show m-0 p-1 pe-5 d-flex align-content-center"
+                        <div class="alert alert-danger alert-dismissible fade show my-1 mx-md-5 p-1 pe-5 d-flex align-content-center"
                             role="alert">
                             <h6>Foto gagal diunggah/diubah &emsp;:</h6>
-                            @foreach ($errors->all() as $index => $error)
-                                {{ $index + 1 }}. {{ $error }} <br>
+                            @foreach ($errors->all() as $error)
+                                {{ $loop->iteration }}. {{ $error }} <br>
                             @endforeach
                             <button type="button" class="btn-close p-0 m-2" data-bs-dismiss="alert"
                                 aria-label="Close"></button>

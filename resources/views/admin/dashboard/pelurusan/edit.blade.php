@@ -6,30 +6,44 @@
             <div class="col-xxl col-12 d-flex align-items-center justify-content-center mb-3 mb-xxl-0">
                 <div id="foto-odp" class="carousel slide">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="{{ url('storage/' . $valin->gambar1) }}"
-                                alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 w-100 h-78vh"
-                                style="max-height: 400px">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{ url('storage/' . $valin->gambar2) }}"
-                                alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 w-100 h-78vh"
-                                style="max-height: 400px">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{ url('storage/' . $valin->gambar3) }}"
-                                alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 w-100 h-78vh"
-                                style="max-height: 400px">
-                        </div>
+                        @if ($valin->gambar1)
+                            <div class="carousel-item active">
+                                <img src="{{ url('storage/' . $valin->gambar1) }}"
+                                    alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 w-100 h-78vh"
+                                    style="max-height: 400px">
+                            </div>
+                        @endif
+                        @if ($valin->gambar2)
+                            <div class="carousel-item">
+                                <img src="{{ url('storage/' . $valin->gambar2) }}"
+                                    alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 w-100 h-78vh"
+                                    style="max-height: 400px">
+                            </div>
+                        @endif
+                        @if ($valin->gambar3)
+                            <div class="carousel-item">
+                                <img src="{{ url('storage/' . $valin->gambar3) }}"
+                                    alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 w-100 h-78vh"
+                                    style="max-height: 400px">
+                            </div>
+                        @endif
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#foto-odp" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#foto-odp" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+                    @if ($valin->gambar1 && !$valin->gambar2 && !$valin->gambar3)
+                    @elseif (!$valin->gambar1 && $valin->gambar2 && !$valin->gambar3)
+
+                    @elseif (!$valin->gambar1 && !$valin->gambar2 && $valin->gambar3)
+                    @else
+                        <button class="carousel-control-prev" type="button" data-bs-target="#foto-odp"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#foto-odp"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    @endif
                 </div>
             </div>
             <div class="col-xxl-5 col-12 fs-6 px-xxl-5 px-1 d-flex align-items-center justify-content-center">

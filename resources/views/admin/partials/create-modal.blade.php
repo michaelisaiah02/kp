@@ -51,7 +51,7 @@
                 <div class="modal-body">
                     <div class="form-floating mb-3" id="id_valins_tambah">
                         <input type="text" class="form-control @error('id_valins') is-invalid @enderror"
-                            id="id_valins" name="id_valins" value="{{ Request::old('id_valins') }}">
+                            id="id_valins" name="id_valins" value="{{ Request::old('id_valins') }}" maxlength="8">
                         <label for="id_valins">Masukan ID Valins</label>
                         @error('id_valins')
                             <div class="invalid-feedback">

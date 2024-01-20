@@ -20,7 +20,8 @@
                         disesuaikan dengan SOP yang diberikan. Mohon file diperiksa kembali sebelum upload dilakukan</p>
                     <input
                         class="form-control mb-3 @error('gambar') is-invalid @enderror @error('gambar.*') is-invalid @enderror"
-                        type="file" id="tambahGambar{{ $modalId }}" name="gambar[]" multiple>
+                        type="file" id="tambahGambar{{ $modalId }}" name="gambar[]" accept="image/*"
+                        capture="environment" multiple>
                     @error('gambar')
                         <div class="invalid-feedback">
                             {{ $message }}
