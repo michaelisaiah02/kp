@@ -23,9 +23,15 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('12345'),
             'warna' => '#00FF00'
         ]);
-        User::factory(5)->create();
+        User::create([
+            "name" => 'Muhammad Farhan Athallah',
+            'email' => 'mfarhanathallah031@gmail.com',
+            'password' => bcrypt('12345'),
+            'warna' => '#CCCCCC'
+        ]);
+        User::factory(4)->create();
 
-        Valin::factory(500)->has(User::factory())->create();
+        Valin::factory(50)->has(User::factory())->create();
 
         Witel::create([
             'witel' => 'Bandung'
