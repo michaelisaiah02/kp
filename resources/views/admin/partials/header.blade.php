@@ -2,7 +2,7 @@
 <nav class="navbar sticky-top
 navbar-dark navbar-expand-md bg-dark-3 py-0 my-0">
     <div class="container-fluid mx-6 py-0 my-0">
-        <a class="navbar-brand mx-md-auto" href="{{ route('index') }}">
+        <a class="navbar-brand mx-md-auto" href="{{ route('dashboard') }}">
             <img src="{{ url('img/asset/logo.png') }}" alt="Logo" id="logo"></a>
         <div id="pesan-lg">
             @if (session()->has('success'))

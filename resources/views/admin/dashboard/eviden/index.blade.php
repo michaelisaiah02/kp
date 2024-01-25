@@ -15,7 +15,7 @@
                     @endif
                     <a href="{{ url('/admin/dashboard/eviden/' . $witel->witel) }}"
                         class="col-md col-12 d-flex justify-content-center btn-danger-3 mx-md-3 border-danger-3 rounded-3 my-md-4 my-3 text-decoration-none ">
-                        <div class="my-md-5 my-3 fs-1 text-light">
+                        <div class="my-xxl-5 my-4 text-light" id="listWitel">
                             {{ $witel->witel }}
                         </div>
                     </a>

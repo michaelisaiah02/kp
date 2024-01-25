@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container-fluid mx-6 mt-md-1 mt-xxl-5 mt-3">
-        <h1 class="fs-l fw-bold text-center text-md-start text-light mt-md-5 mt-0 mb-4 mb-md-2">
+        <h1 class="fs-l fw-bold text-center text-md-start text-light mt-md-3 mt-0 mb-4 mb-md-2">
             Digital Connectivity
         </h1>
         <div class="row column-gap-3">

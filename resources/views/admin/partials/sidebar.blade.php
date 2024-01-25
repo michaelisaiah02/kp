@@ -1,6 +1,6 @@
 <div class="row h-100">
-    <div class="col mt-4 h-100">
-        <div class="list-group h-100">
+    <div class="col mt-4 vh-100">
+        <div class="list-group vh-100">
             <a href="{{ url('/admin') }}"
                 class="list-group-item list-group-item-action border-0 mb-3 bg-dark-3 text-light {{ Request::is('admin') ? 'active-sidebar' : '' }}">
                 <div class="row justify-content-around align-items-center">
@@ -66,7 +66,7 @@
             </div>
         </div>
     </div>
-    <div id="buttonSidebar" class="col-1 h-100 d-flex align-items-center justify-content-center p-0 m-0">
+    <div id="buttonSidebar" class="col-1 vh-100 d-flex align-items-center justify-content-center p-0 m-0">
         <button class="btn p-0 me-3 btn-danger-2 rounded-start-circle" id="toggleSidebar" type="button"
             data-bs-toggle="collapse" data-bs-target="#menu" aria-expanded="true" aria-controls="menu">
             <i class="bi bi-chevron-double-left text-light fs-2 px-1"></i>

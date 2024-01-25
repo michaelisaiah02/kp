@@ -15,7 +15,7 @@
                     @endif
                     <a href="{{ url('/admin/dashboard/pelurusan/' . $rekon->bulan) }}"
                         class="col-md col-12 d-flex justify-content-center btn-danger-2 mx-xxl-4 mx-2 border border-4 border-dark rounded-3 my-2 text-decoration-none shadow">
-                        <div class="my-3 fs-1">
+                        <div class="my-3" id="listBulan">
                             {{ $rekon->bulan }}
                         </div>
                     </a>

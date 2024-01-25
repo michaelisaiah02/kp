@@ -18,7 +18,7 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    <div class="container mt-xxl-5">
+    <div class="container mt-xxl-5 mt-1">
         <div class="row justify-content-between">
             <div class="col align-self-end mb-0">
                 <h4 class="m-0">{{ $title }}</h4>
@@ -32,11 +32,11 @@
                 @include('admin/partials/create-modal')
             </div>
         </div>
-        <hr class="border-light opacity-100 mb-4 mt-2">
+        <hr class="border-light opacity-100 mb-xxl-4 mb-2 mt-xxl-2 mt-1">
         <div class="table-responsive rounded-4">
             <table class="table table-dark border border-1 border-secondary align-middle" id="input-foto-md">
                 </tr>
-                <thead class="table-danger-2">
+                <thead class="table-danger-2" id="input-foto-header">
                     <tr>
                         <th scope="col">Nama File</th>
                         <th scope="col" class="text-md-end text-center">Ukuran File</th>
@@ -54,8 +54,8 @@
                                         {{ pathinfo($valin['gambar' . $i])['basename'] }}
                                     </td>
                                     <td class="text-end user-select-none py-1">
-                                        @if (file_exists(storage_path('app/' . $valin['gambar' . $i])))
-                                            {{ humanFileSize(filesize(storage_path('app/' . $valin['gambar' . $i]))) }}
+                                        @if (file_exists(public_path('storage/' . $valin['gambar' . $i])))
+                                            {{ humanFileSize(filesize(public_path('storage/' . $valin['gambar' . $i]))) }}
                                         @endif
                                     </td>
                                     <td class="text-center user-select-none py-1">

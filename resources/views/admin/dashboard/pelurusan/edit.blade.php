@@ -9,22 +9,21 @@
                         @if ($valin->gambar1)
                             <div class="carousel-item active">
                                 <img src="{{ url('storage/' . $valin->gambar1) }}"
-                                    alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 w-100 h-78vh"
-                                    style="max-height: 400px">
+                                    alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 h-78vh" id="gambar1">
                             </div>
                         @endif
                         @if ($valin->gambar2)
                             <div class="carousel-item">
                                 <img src="{{ url('storage/' . $valin->gambar2) }}"
-                                    alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 w-100 h-78vh"
-                                    style="max-height: 400px">
+                                    alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 h-78vh"
+                                    id="gambar2">
                             </div>
                         @endif
                         @if ($valin->gambar3)
                             <div class="carousel-item">
                                 <img src="{{ url('storage/' . $valin->gambar3) }}"
-                                    alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 w-100 h-78vh"
-                                    style="max-height: 400px">
+                                    alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 h-78vh"
+                                    id="gambar3">
                             </div>
                         @endif
                     </div>
