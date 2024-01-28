@@ -9,25 +9,28 @@
                         @if ($valin->gambar1)
                             <div class="carousel-item active">
                                 <img src="{{ url('storage/' . $valin->gambar1) }}"
-                                    alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 h-78vh" id="gambar1">
+                                    alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 img-fluid"
+                                    id="gambar1">
                             </div>
                         @endif
                         @if ($valin->gambar2)
                             <div class="carousel-item">
                                 <img src="{{ url('storage/' . $valin->gambar2) }}"
-                                    alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 h-78vh"
+                                    alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 img-fluid"
                                     id="gambar2">
                             </div>
                         @endif
                         @if ($valin->gambar3)
                             <div class="carousel-item">
                                 <img src="{{ url('storage/' . $valin->gambar3) }}"
-                                    alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 h-78vh"
+                                    alt="{{ pathinfo($valin->gambar1)['basename'] }}" class="rounded-3 img-fluid"
                                     id="gambar3">
                             </div>
                         @endif
                     </div>
-                    @if ($valin->gambar1 && !$valin->gambar2 && !$valin->gambar3)
+                    @if (!$valin->gambar1 && !$valin->gambar2 && !$valin->gambar3)
+                    @elseif ($valin->gambar1 && !$valin->gambar2 && !$valin->gambar3)
+
                     @elseif (!$valin->gambar1 && $valin->gambar2 && !$valin->gambar3)
 
                     @elseif (!$valin->gambar1 && !$valin->gambar2 && $valin->gambar3)
@@ -65,10 +68,10 @@
                                 </div>
                             </div>
                             <div class="row-cols-3 d-flex justify-content-around mb-3" id="valinsButton">
-                                <button class="btn btn-lg btn-success" type="button"
+                                <button class="btn btn-lg btn-success" type="submit"
                                     onclick="updateInputValue('OK')">OK</button>
-                                <button class="btn btn-lg btn-danger" type="button"
-                                    onclick="updateInputValue('NOK')">NOK</button>
+                                <button class="btn btn-lg btn-danger" type="button" onclick="updateInputValue('NOK')"
+                                    id="nok">NOK</button>
                                 <input type="text" id="pelurusanInput" hidden name="ram3" value="">
                             </div>
                             <div class="row mb-3 align-items-center justify-content-between" id="pelurusanKeterangan">
@@ -89,7 +92,7 @@
                             <div class="row-cols-3 justify-content-around mb-3" id="submitPelurusanButton">
                                 <button class="btn btn-lg btn-warning" type="submit" name="selesai"
                                     value="1">Selesai</button>
-                                <button class="btn btn-lg btn-info" type="submit" name="selesai"
+                                <button class="btn btn-lg btn-info" type="submit" name="lanjut"
                                     value="0">Lanjut</button>
                             </div>
                         </form>

@@ -103,7 +103,7 @@ $(document).ready(function () {
         const id = $(this).data("id");
         const modalId = $(this).data("modal-id");
         const gambarKe = $(this).data("gambar-ke");
-        const baseUrl = "http://kp.test/";
+        const baseUrl = "https://kp.test/";
         $("#gambar_edit_" + modalId).on("change", function (e) {
             console.log(e);
             const previewContainer = $("#image-preview-edit-" + modalId);
@@ -149,9 +149,9 @@ $(document).ready(function () {
                     previewContainer.html(
                         '<img src="' +
                             baseUrl +
-                            "/storage/" +
+                            "storage/" +
                             gambarFile +
-                            '" alt="Preview" style="max-width: 100%;">'
+                            '" alt="Preview" class="img-fluid">'
                     );
                 } else {
                     previewContainer.hide();
@@ -175,7 +175,7 @@ $(document).ready(function () {
     $("#pelurusanKeterangan").hide();
     $("#submitPelurusanButton").hide();
 
-    $("#valinsButton button").on("click", function () {
+    $("#valinsButton #nok").on("click", function () {
         $("#pelurusanIDValins").hide();
         $("#valinsButton").removeClass("d-flex");
         $("#valinsButton").hide();
